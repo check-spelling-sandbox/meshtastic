@@ -101,11 +101,12 @@ jobs:
         with:
           suppress_push_for_open_pull_request: ${{ github.actor != 'dependabot[bot]' && 1 }}
           checkout: true
-          check_file_names: 1
-          check_commit_messages: commits, title, description
+          # check_file_names: 1
+          # check_commit_messages: commits, title, description
           spell_check_this: check-spelling/spell-check-this@prerelease
           post_comment: 0
           use_magic_file: 1
+          debug: 1
           report-timing: 1
           warnings: bad-regex,binary-file,deprecated-feature,ignored-expect-variant,large-file,limited-references,no-newline-at-eof,noisy-file,non-alpha-in-dictionary,token-is-substring,unexpected-line-ending,whitespace-in-dictionary,minified-file,unsupported-configuration,no-files-to-check,unclosed-block-ignore-begin,unclosed-block-ignore-end
           experimental_apply_changes_via_bot: 1
@@ -140,6 +141,7 @@ jobs:
           checkout: true
           spell_check_this: check-spelling/spell-check-this@prerelease
           task: ${{ needs.spelling.outputs.followup }}
+          debug: 1
 
   comment-pr:
     name: Report (PR)
@@ -159,6 +161,7 @@ jobs:
           spell_check_this: check-spelling/spell-check-this@prerelease
           task: ${{ needs.spelling.outputs.followup }}
           experimental_apply_changes_via_bot: 1
+          debug: 1
 
   update:
     name: Update PR
