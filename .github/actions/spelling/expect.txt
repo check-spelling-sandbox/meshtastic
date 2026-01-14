@@ -1,6 +1,3 @@
-favorited
-meshtastic
-nodenum
-PSKs
-xeddsa
+Meshtastic
+Nodenum
 XOR'ing
